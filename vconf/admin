@@ -1,0 +1,4 @@
+dirlist_enable=YES
+download_enable=YES
+local_root=/DATA/ftp
+write_enable=YES
