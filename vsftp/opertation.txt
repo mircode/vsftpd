@@ -1,0 +1,36 @@
+
+http://www.cnblogs.com/ligao/p/6132385.html
+用户
+====================
+用户:wl
+密码:wl12345!
+用户:ljp
+密码:ljp12345!
+用户:admin
+密码:admin12345!
+
+目录结构
+====================
+/DATA/ftp        --admin 管理员 ftp根目录下所有权限
+/DATA/ftp/IBE    --wl 读权限   --ljp 读写权限
+
+
+添加用户
+mkdir /DATA/ftp/user
+chown vsftpd.vsftpd /DATA/ftp/user
+
+./useradd.sh user user
+
+# 读写
+echo 'dirlist_enable=YES
+download_enable=YES
+local_root=/data/ftp/user
+write_enable=YES' > /etc/vsftpd/vconf/user
+
+
+# 下载
+echo 'dirlist_enable=YES
+download_enable=YES
+local_root=/data/ftp
+write_enable=NO' > /etc/vsftpd/vconf/wl
+
